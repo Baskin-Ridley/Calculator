@@ -23,7 +23,7 @@ function operate(operator, a, b) {
         return addition(a, b)
       case "−":
         return substract(a, b)
-      case "×":
+      case "*":
         return multiply(a, b)
       case "÷":
         if (b === 0) return null
