@@ -33,3 +33,7 @@ function operate(operator, a, b) {
     }
 }
 
+//Buttons
+
+const btnOne = document.querySelector("#btnOne");
+btnOne.onclick = () => alert("One")
