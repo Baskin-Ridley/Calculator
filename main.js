@@ -1,4 +1,9 @@
 console.log("test")
+const calcButtons = document.querySelector(".buttonGroup")
+
+
+let displayValue = "";
+console.log(displayValue)
 
 function addition(firstValue, secondValue) {
     console.log("hello");
@@ -35,5 +40,7 @@ function operate(operator, a, b) {
 
 //Buttons
 
-const btnOne = document.querySelector("#btnOne");
-btnOne.onclick = () => alert("One")
+
+//Display
+
+
