@@ -9,7 +9,7 @@ const numberButtons = document.querySelectorAll("[data-number]")
 const operatorButtons = document.querySelectorAll("[data-operator")
 const currentOperationScreen = document.getElementById("currentOperationScreen")
 const equalsButton = document.getElementById("equalsBtn")
-
+const clearButton = document.getElementById("clearBtn")
 //Math functions
 function addition(firstValue, secondValue) {
     console.log("hello");
@@ -60,6 +60,7 @@ operatorButtons.forEach((button) =>
 
 equalsButton.addEventListener('click', calcOutput)
 
+clearButton.addEventListener('click', clear)
 //Display
 
 function appendValue(number) {
@@ -78,11 +79,21 @@ function setOperation(operation) {
   console.log(operator)
   currentOperationScreen.textContent = ""
 }
-
+//outputs 
 function calcOutput() {
   currentSecondValue = parseInt(currentOperationScreen.textContent)
   console.log(currentSecondValue)
 
   displayValue = operate(currentOperator, currentFirstValue, currentSecondValue)
   currentOperationScreen.textContent = displayValue
+}
+
+//clear
+
+function clear() {
+  console.log("clear")
+  currentOperationScreen.textContent = 
+  currentFirstValue = ""
+  currentSecondValue = ""
+  currentOperator = null
 }
