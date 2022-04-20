@@ -8,11 +8,13 @@ console.log(displayValue)
 const numberButtons = document.querySelectorAll("[data-number]")
 const operatorButtons = document.querySelectorAll("[data-operator")
 const currentOperationScreen = document.getElementById("currentOperationScreen")
-
+const equalsButton = document.getElementById("equalsBtn")
 
 //Math functions
 function addition(firstValue, secondValue) {
     console.log("hello");
+    console.log(firstValue)
+    console.log(secondValue)
     return (firstValue + secondValue)
 }
 
@@ -33,14 +35,14 @@ function operate(operator, firstValue, secondValue) {
       case "+":
         return addition(firstValue, secondValue)
       case "−":
-        return substract(firstValue, secondValue)
+        return subtraction(firstValue, secondValue)
       case "*":
         return multiply(firstValue, secondValue)
       case "÷":
-        if (b === 0) return null
+        if (secondValue === 0) return "null"
         else return divide(firstValue, secondValue)
       default:
-        return null
+        return "null"
     }
 }
 
@@ -56,14 +58,7 @@ operatorButtons.forEach((button) =>
   button.addEventListener('click', () => setOperation(button.textContent))
 )
 
-function setOperation(button) {
-  let firstValue = displayValue
-  console.log(firstValue)
-  let operator = button
-  console.log(operator)
-  currentOperationScreen.textContent = ""
-}
-
+equalsButton.addEventListener('click', calcOutput)
 
 //Display
 
@@ -72,4 +67,22 @@ function appendValue(number) {
   currentOperationScreen.textContent += number
   displayValue = currentOperationScreen.textContent
   console.log(displayValue)
+}
+
+//inputs
+
+function setOperation(operation) {
+  currentFirstValue = parseInt(displayValue)
+  console.log(firstValue)
+  currentOperator = operation
+  console.log(operator)
+  currentOperationScreen.textContent = ""
+}
+
+function calcOutput() {
+  currentSecondValue = parseInt(currentOperationScreen.textContent)
+  console.log(currentSecondValue)
+
+  displayValue = operate(currentOperator, currentFirstValue, currentSecondValue)
+  currentOperationScreen.textContent = displayValue
 }
