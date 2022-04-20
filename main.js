@@ -1,10 +1,13 @@
 console.log("test")
-const calcButtons = document.querySelector(".buttonGroup")
-
-
 let displayValue = "";
 console.log(displayValue)
 
+const numberButtons = document.querySelectorAll("[data-number]")
+const operatorButtons = document.querySelectorAll("[data-operator")
+
+
+
+//Math functions
 function addition(firstValue, secondValue) {
     console.log("hello");
     return (firstValue + secondValue)
@@ -38,7 +41,16 @@ function operate(operator, a, b) {
     }
 }
 
+  
 //Buttons
+numberButtons.forEach((button) =>
+  button.addEventListener('click', () => console.log(button))
+)
+
+operatorButtons.forEach((button) =>
+  button.addEventListener('click', () => console.log(button))
+)
+
 
 
 //Display
