@@ -2,6 +2,7 @@ console.log("test")
 let firstValue = ""
 let secondValue = ""
 let displayValue = null;
+let operator = ""
 console.log(displayValue)
 
 const numberButtons = document.querySelectorAll("[data-number]")
@@ -27,21 +28,23 @@ function divide(firstValue, secondValue){
     return (firstValue / secondValue)
 }
 
-function operate(operator, a, b) {
+function operate(operator, firstValue, secondValue) {
     switch (operator) {
       case "+":
-        return addition(a, b)
+        return addition(firstValue, secondValue)
       case "−":
-        return substract(a, b)
+        return substract(firstValue, secondValue)
       case "*":
-        return multiply(a, b)
+        return multiply(firstValue, secondValue)
       case "÷":
         if (b === 0) return null
-        else return divide(a, b)
+        else return divide(firstValue, secondValue)
       default:
         return null
     }
 }
+
+
 
   
 //Buttons
@@ -50,14 +53,23 @@ numberButtons.forEach((button) =>
 )
 
 operatorButtons.forEach((button) =>
-  button.addEventListener('click', () => console.log(button.textContent))
+  button.addEventListener('click', () => setOperation(button.textContent))
 )
 
+function setOperation(button) {
+  let firstValue = displayValue
+  console.log(firstValue)
+  let operator = button
+  console.log(operator)
+  currentOperationScreen.textContent = ""
+}
 
 
 //Display
 
 function appendValue(number) {
+  //add reset function later
   currentOperationScreen.textContent += number
-  console.log()
+  displayValue = currentOperationScreen.textContent
+  console.log(displayValue)
 }
